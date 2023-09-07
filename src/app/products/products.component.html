@@ -1,26 +1,46 @@
-<div class="display-6 bg-secondary text-center text-light p-3">
-  Lista de Produtos
+<div class="jumbotron text-center bg-secondary text-light">
+  <h1 class="display-4">Cadastro de Produtos</h1>
 </div>
-<app-add-product-modal
-  *ngIf="isAddProductModalOpen"
-  (closed)="closeAddProductModal()"
-></app-add-product-modal>
+<app-edit-add-product-modal
+  *ngIf="isProductModalOpen"
+  (closed)="closeProductModal()"
+  [selectedProduct]="selectedProduct"
+  (submitRequested)="addOrEditProduct($event)"
+></app-edit-add-product-modal>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of products">
-      <th scope="row">{{ product.id }}</th>
-      <td>{{ product.name }}</td>
-      <td>{{ product.price }}</td>
-    </tr>
-  </tbody>
-</table>
-
-<button (click)="openAddProductModal()">Adicionar</button>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <th scope="row">{{ product.id }}</th>
+        <td>{{ product.name }}</td>
+        <td>R$ {{ product.price }}</td>
+        <td>
+          <button
+            class="btn btn-primary btn-sm"
+            (click)="openProductModal(product)"
+          >
+            Editar
+          </button>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="deleteProduct(product)"
+          >
+            Excluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success" (click)="openProductModal()">
+    Adicionar Produto
+  </button>
+</div>

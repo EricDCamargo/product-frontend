@@ -1,7 +1,29 @@
 {
   "products": [
-    { "id": 1, "name": "box", "price": 1.2 },
-    { "id": 2, "name": "pen", "price": 0.5 },
-    { "id": 3, "name": "notebook", "price": 8.99 }
+    {
+      "id": 1,
+      "name": "dasd",
+      "price": 0.03
+    },
+    {
+      "id": 2,
+      "name": "Dellai",
+      "price": 34
+    },
+    {
+      "id": 3,
+      "name": "Dellai",
+      "price": 35
+    },
+    {
+      "id": 4,
+      "name": "dasd",
+      "price": 0.04
+    },
+    {
+      "id": 5,
+      "name": "asdasdasddasd",
+      "price": 0.03
+    }
   ]
 }

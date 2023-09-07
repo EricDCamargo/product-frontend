@@ -1,6 +1,7 @@
 <div class="container">
   <div class="modal-header">
-    <h1>Cadastro de Produto</h1>
+    <h1>{{ selectedProduct ? "Edição de Produto" : "Cadastro de Produto" }}</h1>
+
     <span class="close-ico" (click)="close()">X</span>
   </div>
   <form class="product-form">
@@ -25,6 +26,6 @@
         [(ngModel)]="newProductPrice"
       />
     </div>
-    <button type="submit" (click)="addProduct()">Cadastrar</button>
+    <button type="submit" (click)="requestSubmit()">Cadastrar</button>
   </form>
 </div>
